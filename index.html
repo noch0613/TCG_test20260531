@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>大富豪 2人対戦</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header>
+      <h1>大富豪（2人用）</h1>
+      <p>ブラウザ上で 1P と 2P の別画面を使い、手札は非公開で場だけを共有します。</p>
+      <p class="notice">URL に <code>?player=1</code> または <code>?player=2</code> を付けて両方の画面を開いてください。</p>
+    </header>
+
+    <section id="landing" class="landing">
+      <p>まずは自分のプレイヤー番号を選んでください。</p>
+      <div class="link-grid">
+        <a class="seat-link" href="?player=1">プレイヤー 1 画面</a>
+        <a class="seat-link" href="?player=2">プレイヤー 2 画面</a>
+      </div>
+      <p>同じブラウザの別タブや別ウィンドウで両方を開くと、場の情報が同期します。</p>
+    </section>
+
+    <section id="game-area" class="game-area hidden">
+      <div class="status-panel">
+        <div class="player-info">
+          <h2>あなた: プレイヤー <span id="your-seat"></span></h2>
+          <p>あなたの手札: <span id="your-hand-count">0</span> 枚</p>
+          <p>相手の手札: <span id="opponent-hand-count">0</span> 枚</p>
+        </div>
+        <div class="match-info">
+          <p>現在のターン: <strong id="turn-player"></strong></p>
+          <p>場の組み合わせ: <strong id="table-label"></strong></p>
+          <p>最後に出したのは: <strong id="last-player"></strong></p>
+          <div class="control-panel">
+            <button id="play-button">出す</button>
+            <button id="pass-button">パス</button>
+            <button id="restart-button">リセット</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="board-section">
+        <div class="table-card-box">
+          <h3>場</h3>
+          <div id="table-area" class="table-area">現在、場は空です。</div>
+        </div>
+        <div class="hand-section">
+          <h3>あなたの手札</h3>
+          <div id="hand" class="hand"></div>
+        </div>
+      </section>
+
+      <section class="log-section">
+        <h3>対戦ログ</h3>
+        <div id="game-log" class="log"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
