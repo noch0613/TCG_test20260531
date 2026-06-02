@@ -28,6 +28,8 @@ jobs:
           keep_files: true
 
       - name: Enable GitHub Pages site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           curl -s -X POST \
             -H "Authorization: Bearer $GITHUB_TOKEN" \
